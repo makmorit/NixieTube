@@ -29,4 +29,5 @@ funclist
 # EAGLE
 *.lck
 *.l#?
+*.s#?
 
