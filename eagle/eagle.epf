@@ -7,9 +7,6 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="/Users/makmorit/Documents/eagle/20WAmp/20WAmpLibrary.lbr"
-UsedLibrary="/Users/makmorit/Documents/eagle/20WAmp/ConnectorLibrary.lbr"
-UsedLibrary="/Users/makmorit/Documents/eagle/20WAmp/ControllerLibrary.lbr"
 UsedLibrary="Connectors.lbr"
 UsedLibrary="Generic.lbr"
 UsedLibrary="Parts.lbr"

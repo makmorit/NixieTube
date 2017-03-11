@@ -454,6 +454,21 @@ grid 2.54 mm(100MIL)</description>
 <text x="2.6035" y="2.159" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="2.6035" y="-2.032" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
+<package name="DIODE-200MIL">
+<description>&lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
+vertical, grid 5.08 mm</description>
+<wire x1="-1.143" y1="0" x2="-0.508" y2="0" width="0.1524" layer="21"/>
+<wire x1="0.508" y1="0.635" x2="0.508" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="0.508" y1="-0.635" x2="-0.508" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.508" y1="0" x2="1.016" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.508" y1="0" x2="0.508" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-0.508" y1="0.635" x2="-0.508" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.508" y1="0" x2="-0.508" y2="-0.635" width="0.1524" layer="21"/>
+<pad name="C" x="-2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="A" x="2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
+<text x="-2.6035" y="2.2225" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.6035" y="-3.6195" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="NJM2360">
@@ -858,7 +873,7 @@ LD29150DT33R&lt;br&gt;
 <gate name="G$1" symbol="D" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="DIODE-100MIL">
+<device name="" package="DIODE-200MIL">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
