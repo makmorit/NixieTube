@@ -30,4 +30,5 @@ funclist
 *.lck
 *.l#?
 *.s#?
+*.b#?
 
