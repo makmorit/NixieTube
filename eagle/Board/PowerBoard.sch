@@ -335,7 +335,6 @@ pitch: 5.08mm(200MIL)&lt;br&gt;
 <pad name="2" x="0" y="-5.04" drill="1.1684" diameter="2.54"/>
 <text x="-1.905" y="3.175" size="0.889" layer="25" ratio="11">&gt;NAME</text>
 <text x="-2.54" y="-8.89" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
-<rectangle x1="-4.064" y1="-5.207" x2="4.064" y2="5.207" layer="39"/>
 <text x="-5.715" y="0.635" size="1.27" layer="21">1</text>
 <text x="-5.715" y="-4.445" size="1.27" layer="21">2</text>
 </package>
@@ -554,8 +553,8 @@ grid 5 mm(200MIL)</description>
 </package>
 <package name="DIL08">
 <description>&lt;b&gt;Dual In Line Package&lt;/b&gt;</description>
-<wire x1="5.08" y1="2.921" x2="-5.08" y2="2.921" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-2.921" x2="5.08" y2="-2.921" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="2.921" x2="-5.08" y2="2.921" width="0.1524" layer="51"/>
+<wire x1="-5.08" y1="-2.921" x2="5.08" y2="-2.921" width="0.1524" layer="51"/>
 <wire x1="5.08" y1="2.921" x2="5.08" y2="-2.921" width="0.1524" layer="21"/>
 <wire x1="-5.08" y1="2.921" x2="-5.08" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="-5.08" y1="-2.921" x2="-5.08" y2="-1.016" width="0.1524" layer="21"/>
@@ -603,7 +602,7 @@ grid 5.08 mm</description>
 <pad name="1" x="0" y="0" drill="0.8128" shape="long" rot="R90"/>
 <pad name="3" x="5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
 <pad name="2" x="2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
-<text x="0" y="1.778" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="0" y="2.2225" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="0" y="-3.302" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-1.27" y="-2.54" size="0.8128" layer="21">1</text>
 </package>
