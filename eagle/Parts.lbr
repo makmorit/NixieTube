@@ -498,8 +498,8 @@ vertical, grid 5.08 mm</description>
 </package>
 <package name="DIL14">
 <description>&lt;b&gt;Dual In Line Package&lt;/b&gt;</description>
-<wire x1="8.89" y1="2.921" x2="-8.89" y2="2.921" width="0.1524" layer="51"/>
-<wire x1="-8.89" y1="-2.921" x2="8.89" y2="-2.921" width="0.1524" layer="51"/>
+<wire x1="8.89" y1="2.921" x2="-8.89" y2="2.921" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="-2.921" x2="8.89" y2="-2.921" width="0.1524" layer="21"/>
 <wire x1="8.89" y1="2.921" x2="8.89" y2="-2.921" width="0.1524" layer="21"/>
 <wire x1="-8.89" y1="2.921" x2="-8.89" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="-8.89" y1="-2.921" x2="-8.89" y2="-1.016" width="0.1524" layer="21"/>
@@ -520,6 +520,39 @@ vertical, grid 5.08 mm</description>
 <pad name="14" x="-7.62" y="3.81" drill="0.8128" shape="long" rot="R90"/>
 <text x="-9.271" y="-3.048" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="-6.731" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="IN-12">
+<pad name="1" x="4" y="8" drill="0.8128" shape="long" rot="R45"/>
+<pad name="2" x="5.75" y="4.5" drill="0.8128" shape="long"/>
+<pad name="12" x="0" y="9" drill="0.8128" shape="long" rot="R90"/>
+<pad name="8" x="-5.75" y="-4.5" drill="0.8128" shape="long"/>
+<pad name="4" x="5.75" y="-4.5" drill="0.8128" shape="long"/>
+<pad name="3" x="5.75" y="0" drill="0.8128" shape="long"/>
+<pad name="6" x="0" y="-9" drill="0.8128" shape="long" rot="R90"/>
+<pad name="5" x="4" y="-8" drill="0.8128" shape="long" rot="R315"/>
+<text x="7.776" y="13.079" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="8.334" y="-13.015" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<pad name="7" x="-4" y="-8" drill="0.8128" shape="long" rot="R45"/>
+<pad name="9" x="-5.75" y="0" drill="0.8128" shape="long"/>
+<pad name="10" x="-5.75" y="4.5" drill="0.8128" shape="long"/>
+<pad name="11" x="-4" y="8" drill="0.8128" shape="long" rot="R315"/>
+<circle x="0" y="0" radius="1.75" width="0.254" layer="21"/>
+<wire x1="-10.5" y1="5" x2="-10.5" y2="-5" width="0.254" layer="21"/>
+<wire x1="10.5" y1="5" x2="10.5" y2="-5" width="0.254" layer="21"/>
+<wire x1="-10.5" y1="5" x2="10.5" y2="5" width="0.254" layer="21" curve="-180"/>
+<wire x1="-10.5" y1="-5" x2="10.5" y2="-5" width="0.254" layer="21" curve="180"/>
+<text x="7" y="9" size="1.27" layer="21">1</text>
+<text x="-1" y="12" size="1.27" layer="21">12</text>
+<text x="8" y="5" size="1.27" layer="21">2</text>
+<text x="8" y="-0.5" size="1.27" layer="21">3</text>
+<text x="8" y="-6" size="1.27" layer="21">4</text>
+<text x="6" y="-10" size="1.27" layer="21">5</text>
+<text x="-0.5" y="-13" size="1.27" layer="21">6</text>
+<text x="-7" y="-10" size="1.27" layer="21">7</text>
+<text x="-9" y="-6" size="1.27" layer="21">8</text>
+<text x="-9" y="-0.5" size="1.27" layer="21">9</text>
+<text x="-10" y="5" size="1.27" layer="21">10</text>
+<text x="-8" y="9" size="1.27" layer="21">11</text>
 </package>
 </packages>
 <symbols>
@@ -805,6 +838,24 @@ Flash Microcontrollers&lt;br&gt;
 <pin name="C" x="0" y="-5.08" visible="pad" length="short" direction="pas"/>
 <pin name="EMIT" x="17.78" y="-5.08" visible="pad" length="short" direction="pas" rot="R180"/>
 <pin name="COL" x="17.78" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="IN-12B">
+<pin name="7" x="-12.7" y="10.16" visible="pin" length="short" direction="pas" rot="R270"/>
+<pin name="8" x="-7.62" y="10.16" visible="pin" length="short" direction="pas" rot="R270"/>
+<pin name="9" x="-2.54" y="10.16" visible="pin" length="short" direction="pas" rot="R270"/>
+<pin name="10" x="2.54" y="10.16" visible="pin" length="short" direction="pas" rot="R270"/>
+<pin name="11" x="7.62" y="10.16" visible="pin" length="short" direction="pas" rot="R270"/>
+<pin name="12" x="15.24" y="2.54" visible="pin" length="short" direction="pas" rot="R180"/>
+<pin name="6" x="-20.32" y="2.54" visible="pin" length="short" direction="pas"/>
+<pin name="5" x="-12.7" y="-5.08" visible="pin" length="short" direction="pas" rot="R90"/>
+<pin name="4" x="-7.62" y="-5.08" visible="pin" length="short" direction="pas" rot="R90"/>
+<pin name="3" x="-2.54" y="-5.08" visible="pin" length="short" direction="pas" rot="R90"/>
+<pin name="2" x="2.54" y="-5.08" visible="pin" length="short" direction="pas" rot="R90"/>
+<pin name="1" x="7.62" y="-5.08" visible="pin" length="short" direction="pas" rot="R90"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="-2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="-12.7" y1="-2.54" x2="-12.7" y2="7.62" width="0.254" layer="94" curve="-180"/>
+<wire x1="-12.7" y1="7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1271,6 +1322,33 @@ TLP627-2&lt;br&gt;
 <connect gate="G$2" pin="C" pad="4"/>
 <connect gate="G$2" pin="COL" pad="6"/>
 <connect gate="G$2" pin="EMIT" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="IN-12*" prefix="Q">
+<description>&lt;b&gt;ニキシー管&lt;/b&gt;&lt;p&gt;</description>
+<gates>
+<gate name="G$1" symbol="IN-12B" x="-7.62" y="5.08"/>
+</gates>
+<devices>
+<device name="B" package="IN-12">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="10" pad="10"/>
+<connect gate="G$1" pin="11" pad="11"/>
+<connect gate="G$1" pin="12" pad="12"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
 <technology name=""/>
