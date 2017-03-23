@@ -1086,7 +1086,6 @@ pitch: 5.08mm(200MIL)&lt;br&gt;
 <part name="GND1" library="Supply" deviceset="0V" device=""/>
 <part name="CN1" library="Connectors" deviceset="PIC_CN" device="_H"/>
 <part name="P+1" library="Supply" deviceset="+5V" device=""/>
-<part name="P+2" library="Supply" deviceset="+5V" device=""/>
 <part name="P+3" library="Supply" deviceset="+170V" device=""/>
 <part name="GND2" library="Supply" deviceset="0V" device=""/>
 <part name="GND3" library="Supply" deviceset="0V" device=""/>
@@ -1125,7 +1124,6 @@ pitch: 5.08mm(200MIL)&lt;br&gt;
 <instance part="GND1" gate="1" x="228.6" y="48.26"/>
 <instance part="CN1" gate="G$1" x="109.22" y="114.3"/>
 <instance part="P+1" gate="1" x="175.26" y="88.9"/>
-<instance part="P+2" gate="1" x="101.6" y="134.62"/>
 <instance part="P+3" gate="1" x="139.7" y="106.68"/>
 <instance part="GND2" gate="1" x="106.68" y="43.18"/>
 <instance part="GND3" gate="1" x="106.68" y="66.04"/>
@@ -1463,19 +1461,28 @@ pitch: 5.08mm(200MIL)&lt;br&gt;
 <wire x1="190.5" y1="68.58" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="P+2" gate="1" pin="+5V"/>
-<wire x1="101.6" y1="132.08" x2="101.6" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="CN1" gate="G$1" pin="VDD"/>
-<wire x1="101.6" y1="116.84" x2="109.22" y2="116.84" width="0.1524" layer="91"/>
-</segment>
-<segment>
+<wire x1="109.22" y1="116.84" x2="81.28" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="116.84" x2="81.28" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="104.14" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="104.14" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="VDD"/>
+<wire x1="43.18" y1="78.74" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="C1" gate="G$1" pin="2"/>
+<wire x1="38.1" y1="78.74" x2="38.1" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="78.74" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
+<junction x="38.1" y="78.74"/>
 <pinref part="P+4" gate="1" pin="+5V"/>
 <wire x1="27.94" y1="132.08" x2="27.94" y2="127" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="27.94" y1="127" x2="55.88" y2="127" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="127" x2="33.02" y2="127" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="127" x2="55.88" y2="127" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="119.38" x2="27.94" y2="127" width="0.1524" layer="91"/>
 <junction x="27.94" y="127"/>
+<wire x1="33.02" y1="104.14" x2="33.02" y2="127" width="0.1524" layer="91"/>
+<junction x="33.02" y="104.14"/>
+<junction x="33.02" y="127"/>
 </segment>
 </net>
 <net name="+24V" class="0">
@@ -1550,14 +1557,6 @@ pitch: 5.08mm(200MIL)&lt;br&gt;
 <junction x="88.9" y="73.66"/>
 <pinref part="CN1" gate="G$1" pin="PGC"/>
 <wire x1="88.9" y1="124.46" x2="109.22" y2="124.46" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="VDD"/>
-<wire x1="43.18" y1="78.74" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="38.1" y1="78.74" x2="38.1" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$8" class="0">
