@@ -1,5 +1,6 @@
 #include "main.h"
 #include "device.h"
+#include "process.h"
 
 __CONFIG(CLKOUTEN_OFF & FOSC_HS & FCMEN_OFF & IESO_OFF & BOREN_ON & PWRTE_ON & WDTE_OFF & MCLRE_OFF & CP_OFF & CPD_OFF);
 __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & LVP_OFF);
@@ -8,6 +9,7 @@ __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & LVP_OFF);
 //
 // タイマーで使用する変数
 //
+static unsigned long total_tmr0_cnt_10m;
 static unsigned long total_tmr0_cnt_100m;
 static unsigned long total_tmr0_cnt_1s;
 static unsigned char tmr0_toggle;
@@ -50,6 +52,7 @@ static void interrupt intr(void)
 	// タイマー０割込み（1ミリ秒ごと）の場合
 	if (TMR0IF == 1) {
 		// 割込みカウンター
+		total_tmr0_cnt_10m++;
 		total_tmr0_cnt_100m++;
 		total_tmr0_cnt_1s++;
 		tmr0_toggle = 1;
@@ -65,35 +68,23 @@ static void interrupt intr(void)
 //
 static void do_events()
 {
-	static unsigned char n;
-
 	//
 	// 割込みごとに処理（3.2768 ms）
 	//
 	if (tmr0_toggle == 1) {
 		tmr0_toggle = 0;
 
-		// TODO
+		// ボタン連続押下抑止処理
+		switch_prevent();
 	}
 
 	//
-	// 約 0.1 秒ごとに処理（3.2768ms × 30回）
+	// 約 10 ミリ秒ごとに処理（3.2768ms × 3回）
 	//
-	if (total_tmr0_cnt_100m > 30) {
+	if (total_tmr0_cnt_10m > 3) {
 		// カウンターを初期化
-		total_tmr0_cnt_100m = 0;
-
-		if (n == 0) {
-			n = 10;
-		} else {
-			n--;
-		}
-
-		// TODO
-		PIC_A = (n & 1) >> 0;
-		PIC_B = (n & 2) >> 1;
-		PIC_C = (n & 4) >> 2;
-		PIC_D = (n & 8) >> 3;
+		total_tmr0_cnt_10m = 0;
+		process_on_10m_second();
 	}
 
 	//
@@ -102,10 +93,11 @@ static void do_events()
 	if (total_tmr0_cnt_1s > 305) {
 		// カウンターを初期化
 		total_tmr0_cnt_1s = 0;
-
-		// TODO
-		TLP_A_2 = ~TLP_A_2;
+		process_on_one_second();
 	}
+
+	// ボタン押下検知処理
+	switch_detection();
 }
 
 //
@@ -118,11 +110,11 @@ void main()
 
 	// do_events 処理回数カウンター
 	//   処理時点での割込みカウンター
+	total_tmr0_cnt_10m = 0;
 	total_tmr0_cnt_100m = 0;
 	total_tmr0_cnt_1s = 0;
 
-	// Anode1をOnにします
-	TLP_A_1 = 1;
+	process_init();
 
 	while (1) {
 		// イベント処理
