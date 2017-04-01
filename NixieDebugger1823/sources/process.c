@@ -8,14 +8,17 @@
 //
 #define N_DIGIT 2
 static unsigned char digit_cnt;
+static unsigned char digit_ctrl_cnt;
 
 // カウンターとして使用する変数
 static unsigned long user_count;
 
 //
 // 数字点灯制御信号を送る
+//   mode == 0 の時は消灯（Anode Off）
+//   mode == 1 の時は点灯（Anode On）
 //
-static void digit_signal()
+static void digit_signal(unsigned char mode)
 {
 	unsigned char n;
 
@@ -23,15 +26,14 @@ static void digit_signal()
 	// 桁に対応する Anode を On にします
 	switch (digit_cnt) {
 	case 0:
-		TLP_A_1 = 1;
+		TLP_A_1 = 1 & mode;
 		TLP_A_2 = 0;
 
 		n = (user_count % 100) / 10;
-		//n = 5;
 		break;
 	case 1:
 		TLP_A_1 = 0;
-		TLP_A_2 = 1;
+		TLP_A_2 = 1 & mode;
 
 		n = user_count % 10;
 		break;
@@ -97,16 +99,27 @@ void switch_detection()
 	}
 }
 
-// 約 10 ミリ秒ごとに処理（3.2768ms × 3回）
-void process_on_10m_second()
+// 割込みごとに処理（3.2768 ms）
+void process_on_3m_second()
 {
-	// 数字を点灯
-	digit_signal();
+	digit_ctrl_cnt++;
+	if (digit_ctrl_cnt < 2) {
+		// 数字を消灯
+		digit_signal(0);
 
-	// 桁を変えます
-	digit_cnt++;
-	if (digit_cnt == N_DIGIT) {
-		digit_cnt = 0;
+	} else if (digit_ctrl_cnt < 4) {
+		// 数字を点灯
+		digit_signal(1);
+
+	} else {
+		// 桁を変えます
+		digit_cnt++;
+		if (digit_cnt == N_DIGIT) {
+			digit_cnt = 0;
+		}
+
+		// カウンターをリセット
+		digit_ctrl_cnt = 0;
 	}
 }
 
@@ -126,6 +139,9 @@ void process_init()
 
 	// 表示桁
 	digit_cnt = 0;
+
+	// 表示制御のためのカウンター
+	digit_ctrl_cnt = 0;
 
 	// カウンターとして表示させたい値
 	user_count = 0;

@@ -6,7 +6,7 @@
 //
 void switch_prevent();
 void switch_detection();
-void process_on_10m_second();
+void process_on_3m_second();
 void process_on_one_second();
 void process_init();
 

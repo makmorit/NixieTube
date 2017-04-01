@@ -9,8 +9,6 @@ __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & LVP_OFF);
 //
 // タイマーで使用する変数
 //
-static unsigned long total_tmr0_cnt_10m;
-static unsigned long total_tmr0_cnt_100m;
 static unsigned long total_tmr0_cnt_1s;
 static unsigned char tmr0_toggle;
 
@@ -52,8 +50,6 @@ static void interrupt intr(void)
 	// タイマー０割込み（1ミリ秒ごと）の場合
 	if (TMR0IF == 1) {
 		// 割込みカウンター
-		total_tmr0_cnt_10m++;
-		total_tmr0_cnt_100m++;
 		total_tmr0_cnt_1s++;
 		tmr0_toggle = 1;
 		// 256カウント（3.2768 ms）で割込み発生させる
@@ -73,18 +69,10 @@ static void do_events()
 	//
 	if (tmr0_toggle == 1) {
 		tmr0_toggle = 0;
+		process_on_3m_second();
 
 		// ボタン連続押下抑止処理
 		switch_prevent();
-	}
-
-	//
-	// 約 10 ミリ秒ごとに処理（3.2768ms × 3回）
-	//
-	if (total_tmr0_cnt_10m > 3) {
-		// カウンターを初期化
-		total_tmr0_cnt_10m = 0;
-		process_on_10m_second();
 	}
 
 	//
@@ -110,8 +98,6 @@ void main()
 
 	// do_events 処理回数カウンター
 	//   処理時点での割込みカウンター
-	total_tmr0_cnt_10m = 0;
-	total_tmr0_cnt_100m = 0;
 	total_tmr0_cnt_1s = 0;
 
 	process_init();
