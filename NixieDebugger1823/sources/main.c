@@ -9,7 +9,6 @@ __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & LVP_OFF);
 //
 // タイマーで使用する変数
 //
-static unsigned long total_tmr0_cnt_1s;
 static unsigned char tmr0_toggle;
 
 //
@@ -25,10 +24,10 @@ static void initialize()
 	//
 	// TMR0ON: Enables Timer0
 	// T08BIT: Timer0 is configured as an 8-bit timer/counter
-	// プリスケーラー:64  － １カウント12.8μ秒(=1/20MHz*4*64)
+	// プリスケーラー:16  － １カウント 3.2μ秒(=1/20MHz*4*16)
 	// OPTION_REG の先頭ビット:!WPUEN (1:内部プルアップ無)
-	OPTION_REG = 0b10000101;
-	// 256カウント（3.2768 ms）で割込み発生させる
+	OPTION_REG = 0b10000011;
+	// 256カウント（0.8192 ms）で割込み発生させる
 	TMR0 = 0;
 	// TMR0割り込み許可
 	TMR0IE = 1;
@@ -50,9 +49,8 @@ static void interrupt intr(void)
 	// タイマー０割込み（1ミリ秒ごと）の場合
 	if (TMR0IF == 1) {
 		// 割込みカウンター
-		total_tmr0_cnt_1s++;
 		tmr0_toggle = 1;
-		// 256カウント（3.2768 ms）で割込み発生させる
+		// 256カウント（0.8192 ms）で割込み発生させる
 		TMR0 = 0;
 		// TMR0割り込みクリア
 		TMR0IF = 0;
@@ -65,23 +63,14 @@ static void interrupt intr(void)
 static void do_events()
 {
 	//
-	// 割込みごとに処理（3.2768 ms）
+	// 割込みごとに処理（0.8192 ms）
 	//
 	if (tmr0_toggle == 1) {
 		tmr0_toggle = 0;
-		process_on_3m_second();
+		process_on_interval();
 
 		// ボタン連続押下抑止処理
 		switch_prevent();
-	}
-
-	//
-	// 約 1.0 秒ごとに処理（3.2768ms × 305回）
-	//
-	if (total_tmr0_cnt_1s > 305) {
-		// カウンターを初期化
-		total_tmr0_cnt_1s = 0;
-		process_on_one_second();
 	}
 
 	// ボタン押下検知処理
@@ -95,11 +84,6 @@ void main()
 {
 	// ピンや機能等の初期化処理
 	initialize();
-
-	// do_events 処理回数カウンター
-	//   処理時点での割込みカウンター
-	total_tmr0_cnt_1s = 0;
-
 	process_init();
 
 	while (1) {

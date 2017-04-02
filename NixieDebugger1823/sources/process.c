@@ -14,8 +14,8 @@ static unsigned char digit_ctrl_cnt;
 static unsigned long user_sec_count;
 static unsigned long cnt_int_per_sec;
 
-// １秒間当たりの割込み回数
-#define INT_PER_SEC 305 
+// １秒間当たりの割込み回数（0.8192×1221）
+#define INT_PER_SEC 1221
 
 //
 // 数字点灯制御信号を送る
@@ -92,7 +92,7 @@ static int process_on_button_press()
 	return ret;
 }
 
-// 割込みごとに処理（3.2768 ms）
+// 割込みごとに処理（0.8192 ms）
 void switch_prevent()
 {
 	// カウンターが０の時は終了
@@ -114,15 +114,15 @@ void switch_detection()
 
 	// スイッチ押下時の処理を実行
 	if (process_on_button_press() != 0) {
-		// 押下抑止カウンターを設定(約１秒に設定)
-		btn_push_prevent_cnt = 300;
+		// 押下抑止カウンターを設定(約0.5秒に設定)
+		btn_push_prevent_cnt = 600;
 	} else {
 		btn_push_prevent_cnt = 0;
 	}
 }
 
-// 割込みごとに処理（3.2768 ms）
-void process_on_3m_second()
+// 割込みごとに処理（0.8192 ms）
+void process_on_interval()
 {
 	// 秒あたり割込み回数をカウントダウン
 	if (0 < cnt_int_per_sec) {
@@ -139,14 +139,14 @@ void process_on_3m_second()
 	// ダイナミック点灯時の残像表示回避対応
 	//
 	//   digit_ctrl_cntで消灯／点灯を制御
-	//    1: 数字を消灯
-	//    2-3: 数字を点灯
+	//    1: 数字を消灯		0.8192ms*1
+	//    2-5: 数字を点灯	0.8192ms*4
 	//
 	digit_ctrl_cnt++;
 	if (digit_ctrl_cnt < 2) {
 		digit_signal(0);
 
-	} else if (digit_ctrl_cnt < 4) {
+	} else if (digit_ctrl_cnt < 6) {
 		digit_signal(1);
 
 	} else {
@@ -159,11 +159,6 @@ void process_on_3m_second()
 		// カウンターをリセット
 		digit_ctrl_cnt = 0;
 	}
-}
-
-// 約 1.0 秒ごとに処理（3.2768ms × 305回）
-void process_on_one_second()
-{
 }
 
 void process_init()
