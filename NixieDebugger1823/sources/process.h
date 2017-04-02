@@ -2,7 +2,7 @@
 #define __PROCESS_H
 
 //
-// ä÷êî
+// Èñ¢Êï∞
 //
 void switch_prevent();
 void switch_detection();

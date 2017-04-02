@@ -7,103 +7,103 @@ __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & LVP_OFF);
 
 
 //
-// ƒ^ƒCƒ}[‚ÅŽg—p‚·‚é•Ï”
+// ã‚¿ã‚¤ãƒžãƒ¼ã§ä½¿ç”¨ã™ã‚‹å¤‰æ•°
 //
 static unsigned long total_tmr0_cnt_1s;
 static unsigned char tmr0_toggle;
 
 //
-// ‰Šú‰»ˆ—
+// åˆæœŸåŒ–å‡¦ç†
 //
 static void initialize()
 {
-	// ƒsƒ“‚È‚Ç‚Ì‰ŠúÝ’è‚ðs‚¤
+	// ãƒ”ãƒ³ãªã©ã®åˆæœŸè¨­å®šã‚’è¡Œã†
 	port_init();
 
 	//
-	// ƒ^ƒCƒ}[‚O‚ÌÝ’è‚ðs‚¤
+	// ã‚¿ã‚¤ãƒžãƒ¼ï¼ã®è¨­å®šã‚’è¡Œã†
 	//
 	// TMR0ON: Enables Timer0
 	// T08BIT: Timer0 is configured as an 8-bit timer/counter
-	// ƒvƒŠƒXƒP[ƒ‰[:64  | ‚PƒJƒEƒ“ƒg12.8ƒÊ•b(=1/20MHz*4*64)
-	// OPTION_REG ‚Ìæ“ªƒrƒbƒg:!WPUEN (1:“à•”ƒvƒ‹ƒAƒbƒv–³)
+	// ãƒ—ãƒªã‚¹ã‚±ãƒ¼ãƒ©ãƒ¼:64  ï¼ ï¼‘ã‚«ã‚¦ãƒ³ãƒˆ12.8Î¼ç§’(=1/20MHz*4*64)
+	// OPTION_REG ã®å…ˆé ­ãƒ“ãƒƒãƒˆ:!WPUEN (1:å†…éƒ¨ãƒ—ãƒ«ã‚¢ãƒƒãƒ—ç„¡)
 	OPTION_REG = 0b10000101;
-	// 256ƒJƒEƒ“ƒgi3.2768 msj‚ÅŠ„ž‚Ý”­¶‚³‚¹‚é
+	// 256ã‚«ã‚¦ãƒ³ãƒˆï¼ˆ3.2768 msï¼‰ã§å‰²è¾¼ã¿ç™ºç”Ÿã•ã›ã‚‹
 	TMR0 = 0;
-	// TMR0Š„‚èž‚Ý‹–‰Â
+	// TMR0å‰²ã‚Šè¾¼ã¿è¨±å¯
 	TMR0IE = 1;
 
-	// ‘SŠ„ž‚Ýˆ—‚ð‹–‰Â‚·‚é
+	// å…¨å‰²è¾¼ã¿å‡¦ç†ã‚’è¨±å¯ã™ã‚‹
 	PEIE = 1;
 	GIE  = 1;
 
 	// TIMER2 on prescale=1
-	// TIMER2ƒXƒ^[ƒgionƒrƒbƒg‚ð‚Pj
+	// TIMER2ã‚¹ã‚¿ãƒ¼ãƒˆï¼ˆonãƒ“ãƒƒãƒˆã‚’ï¼‘ï¼‰
 	T2CON = 0b100;
 }
 
 //
-// Š„ž‚Ýˆ—
+// å‰²è¾¼ã¿å‡¦ç†
 //
 static void interrupt intr(void)
 {
-	// ƒ^ƒCƒ}[‚OŠ„ž‚Ýi1ƒ~ƒŠ•b‚²‚Æj‚Ìê‡
+	// ã‚¿ã‚¤ãƒžãƒ¼ï¼å‰²è¾¼ã¿ï¼ˆ1ãƒŸãƒªç§’ã”ã¨ï¼‰ã®å ´åˆ
 	if (TMR0IF == 1) {
-		// Š„ž‚ÝƒJƒEƒ“ƒ^[
+		// å‰²è¾¼ã¿ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
 		total_tmr0_cnt_1s++;
 		tmr0_toggle = 1;
-		// 256ƒJƒEƒ“ƒgi3.2768 msj‚ÅŠ„ž‚Ý”­¶‚³‚¹‚é
+		// 256ã‚«ã‚¦ãƒ³ãƒˆï¼ˆ3.2768 msï¼‰ã§å‰²è¾¼ã¿ç™ºç”Ÿã•ã›ã‚‹
 		TMR0 = 0;
-		// TMR0Š„‚èž‚ÝƒNƒŠƒA
+		// TMR0å‰²ã‚Šè¾¼ã¿ã‚¯ãƒªã‚¢
 		TMR0IF = 0;
 	}
 }
 
 //
-// ƒCƒxƒ“ƒgˆ—
+// ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
 //
 static void do_events()
 {
 	//
-	// Š„ž‚Ý‚²‚Æ‚Éˆ—i3.2768 msj
+	// å‰²è¾¼ã¿ã”ã¨ã«å‡¦ç†ï¼ˆ3.2768 msï¼‰
 	//
 	if (tmr0_toggle == 1) {
 		tmr0_toggle = 0;
 		process_on_3m_second();
 
-		// ƒ{ƒ^ƒ“˜A‘±‰Ÿ‰º—}Ž~ˆ—
+		// ãƒœã‚¿ãƒ³é€£ç¶šæŠ¼ä¸‹æŠ‘æ­¢å‡¦ç†
 		switch_prevent();
 	}
 
 	//
-	// –ñ 1.0 •b‚²‚Æ‚Éˆ—i3.2768ms ~ 305‰ñj
+	// ç´„ 1.0 ç§’ã”ã¨ã«å‡¦ç†ï¼ˆ3.2768ms Ã— 305å›žï¼‰
 	//
 	if (total_tmr0_cnt_1s > 305) {
-		// ƒJƒEƒ“ƒ^[‚ð‰Šú‰»
+		// ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã‚’åˆæœŸåŒ–
 		total_tmr0_cnt_1s = 0;
 		process_on_one_second();
 	}
 
-	// ƒ{ƒ^ƒ“‰Ÿ‰ºŒŸ’mˆ—
+	// ãƒœã‚¿ãƒ³æŠ¼ä¸‹æ¤œçŸ¥å‡¦ç†
 	switch_detection();
 }
 
 //
-// ƒƒCƒ“ƒ‹[ƒ`ƒ“
+// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒãƒ³
 //
 void main() 
 {
-	// ƒsƒ“‚â‹@”\“™‚Ì‰Šú‰»ˆ—
+	// ãƒ”ãƒ³ã‚„æ©Ÿèƒ½ç­‰ã®åˆæœŸåŒ–å‡¦ç†
 	initialize();
 
-	// do_events ˆ—‰ñ”ƒJƒEƒ“ƒ^[
-	//   ˆ—Žž“_‚Å‚ÌŠ„ž‚ÝƒJƒEƒ“ƒ^[
+	// do_events å‡¦ç†å›žæ•°ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
+	//   å‡¦ç†æ™‚ç‚¹ã§ã®å‰²è¾¼ã¿ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
 	total_tmr0_cnt_1s = 0;
 
 	process_init();
 
 	while (1) {
-		// ƒCƒxƒ“ƒgˆ—
+		// ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
 		do_events();
 	}
 }
