@@ -481,6 +481,7 @@ grid 7.62 mm(300MIL)</description>
 <text x="-0.508" y="2.794" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-0.635" y="-3.683" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="21"/>
+<circle x="0" y="0" radius="8" width="0.3048" layer="21"/>
 </package>
 <package name="ELECAP_200MIL">
 <description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -845,6 +846,34 @@ grid 5.08 mm</description>
 <wire x1="4.7625" y1="1.5875" x2="4.7625" y2="-1.5875" width="0.127" layer="51" curve="-73.057711"/>
 <wire x1="0.47625" y1="1.5875" x2="4.7625" y2="1.5875" width="0.127" layer="21" curve="-109.731614"/>
 </package>
+<package name="RESISTOR_0207_300MIL">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
+type 0207, grid 7.5 mm (300MIL)</description>
+<wire x1="0" y1="0" x2="0.381" y2="0" width="0.6096" layer="51"/>
+<wire x1="0.635" y1="0.889" x2="0.889" y2="1.143" width="0.1524" layer="51" curve="-90" cap="flat"/>
+<wire x1="0.635" y1="-0.889" x2="0.889" y2="-1.143" width="0.1524" layer="51" curve="90" cap="flat"/>
+<wire x1="6.731" y1="-1.143" x2="6.985" y2="-0.889" width="0.1524" layer="51" curve="90" cap="flat"/>
+<wire x1="6.731" y1="1.143" x2="6.985" y2="0.889" width="0.1524" layer="51" curve="-90" cap="flat"/>
+<wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.1524" layer="51"/>
+<wire x1="0.889" y1="1.143" x2="1.27" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="1.397" y1="1.016" x2="1.27" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="0.889" y1="-1.143" x2="1.27" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="1.397" y1="-1.016" x2="1.27" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="6.223" y1="1.016" x2="6.35" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="6.223" y1="1.016" x2="1.397" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="6.223" y1="-1.016" x2="6.35" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="6.223" y1="-1.016" x2="1.397" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="6.731" y1="1.143" x2="6.35" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="6.731" y1="-1.143" x2="6.35" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="6.985" y1="-0.889" x2="6.985" y2="0.889" width="0.1524" layer="51"/>
+<wire x1="7.239" y1="0" x2="7.62" y2="0" width="0.6096" layer="51"/>
+<pad name="1" x="0" y="0" drill="0.8" diameter="1.4" shape="long"/>
+<pad name="2" x="7.62" y="0" drill="0.8" diameter="1.4" shape="long"/>
+<text x="1.27" y="1.397" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="1.524" y="-0.5588" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="0.381" y1="-0.3048" x2="0.635" y2="0.3048" layer="51"/>
+<rectangle x1="6.985" y1="-0.3048" x2="7.239" y2="0.3048" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CPOL">
@@ -1206,6 +1235,15 @@ Flash Microcontrollers&lt;br&gt;
 <technology name=""/>
 </technologies>
 </device>
+<device name="_300MIL" package="RESISTOR_0207_300MIL">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="CAP" prefix="C" uservalue="yes">
@@ -1430,18 +1468,18 @@ Flash Microcontrollers&lt;br&gt;
 <devices>
 <device name="B" package="IN-12">
 <connects>
-<connect gate="G$1" pin="1" pad="7"/>
-<connect gate="G$1" pin="10" pad="4"/>
-<connect gate="G$1" pin="11" pad="5"/>
-<connect gate="G$1" pin="12" pad="6"/>
-<connect gate="G$1" pin="2" pad="8"/>
-<connect gate="G$1" pin="3" pad="9"/>
-<connect gate="G$1" pin="4" pad="10"/>
-<connect gate="G$1" pin="5" pad="11"/>
-<connect gate="G$1" pin="6" pad="12"/>
-<connect gate="G$1" pin="7" pad="1"/>
-<connect gate="G$1" pin="8" pad="2"/>
-<connect gate="G$1" pin="9" pad="3"/>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="10" pad="10"/>
+<connect gate="G$1" pin="11" pad="11"/>
+<connect gate="G$1" pin="12" pad="12"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1666,11 +1704,11 @@ TLP627-2&lt;br&gt;
 <part name="SW1" library="Parts" deviceset="10-XX" device=""/>
 <part name="U3" library="Parts" deviceset="TLP627*" device="-2"/>
 <part name="C9" library="Parts" deviceset="CAP" device="_200MIL" value="0.1uF"/>
-<part name="R8" library="Parts" deviceset="RESISTOR" device="_600MIL" value="20k"/>
+<part name="R8" library="Parts" deviceset="RESISTOR" device="_300MIL" value="20k"/>
 <part name="R9" library="Parts" deviceset="RESISTOR" device="_600MIL" value="20k"/>
-<part name="R15" library="Parts" deviceset="RESISTOR" device="_600MIL" value="10k"/>
-<part name="R11" library="Parts" deviceset="RESISTOR" device="_600MIL" value="470"/>
-<part name="R12" library="Parts" deviceset="RESISTOR" device="_600MIL" value="470"/>
+<part name="R15" library="Parts" deviceset="RESISTOR" device="_300MIL" value="10k"/>
+<part name="R11" library="Parts" deviceset="RESISTOR" device="_300MIL" value="470"/>
+<part name="R12" library="Parts" deviceset="RESISTOR" device="_300MIL" value="470"/>
 <part name="GND2" library="Supply" deviceset="0V" device=""/>
 <part name="CN1" library="Connectors" deviceset="PIC_CN" device="_H"/>
 <part name="P+3" library="Supply" deviceset="+5V" device=""/>
@@ -1678,8 +1716,8 @@ TLP627-2&lt;br&gt;
 <part name="GND3" library="Supply" deviceset="0V" device=""/>
 <part name="GND4" library="Supply" deviceset="0V" device=""/>
 <part name="GND5" library="Supply" deviceset="0V" device=""/>
-<part name="C7" library="Parts" deviceset="CAP" device="_100MIL" value="22pF"/>
-<part name="C8" library="Parts" deviceset="CAP" device="_100MIL" value="22pF"/>
+<part name="C7" library="Parts" deviceset="CAP" device="_200MIL" value="22pF"/>
+<part name="C8" library="Parts" deviceset="CAP" device="_200MIL" value="22pF"/>
 <part name="P+5" library="Supply" deviceset="+5V" device=""/>
 <part name="GND8" library="Supply" deviceset="0V" device=""/>
 <part name="X1" library="Parts" deviceset="HUSG-*" device="20.000-20" value="20MHz"/>
@@ -1692,9 +1730,9 @@ TLP627-2&lt;br&gt;
 <part name="P+7" library="Supply" deviceset="+5V" device=""/>
 <part name="GND6" library="Supply" deviceset="0V" device=""/>
 <part name="U4" library="Parts" deviceset="TLP627*" device="-2"/>
-<part name="R10" library="Parts" deviceset="RESISTOR" device="_600MIL" value="20k"/>
-<part name="R13" library="Parts" deviceset="RESISTOR" device="_600MIL" value="470"/>
-<part name="R14" library="Parts" deviceset="RESISTOR" device="_600MIL" value="470"/>
+<part name="R10" library="Parts" deviceset="RESISTOR" device="_300MIL" value="20k"/>
+<part name="R13" library="Parts" deviceset="RESISTOR" device="_300MIL" value="470"/>
+<part name="R14" library="Parts" deviceset="RESISTOR" device="_300MIL" value="470"/>
 <part name="P+8" library="Supply" deviceset="+170V" device=""/>
 <part name="GND7" library="Supply" deviceset="0V" device=""/>
 <part name="P+9" library="Supply" deviceset="+5V" device=""/>

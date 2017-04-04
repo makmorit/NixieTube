@@ -299,10 +299,10 @@ horizontal, grid 12.7 mm</description>
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
 type 0207, grid 7.5 mm (300MIL)</description>
 <wire x1="0" y1="0" x2="0.381" y2="0" width="0.6096" layer="51"/>
-<wire x1="0.635" y1="0.889" x2="0.889" y2="1.143" width="0.1524" layer="21" curve="-90" cap="flat"/>
-<wire x1="0.635" y1="-0.889" x2="0.889" y2="-1.143" width="0.1524" layer="21" curve="90" cap="flat"/>
-<wire x1="6.731" y1="-1.143" x2="6.985" y2="-0.889" width="0.1524" layer="21" curve="90" cap="flat"/>
-<wire x1="6.731" y1="1.143" x2="6.985" y2="0.889" width="0.1524" layer="21" curve="-90" cap="flat"/>
+<wire x1="0.635" y1="0.889" x2="0.889" y2="1.143" width="0.1524" layer="51" curve="-90" cap="flat"/>
+<wire x1="0.635" y1="-0.889" x2="0.889" y2="-1.143" width="0.1524" layer="51" curve="90" cap="flat"/>
+<wire x1="6.731" y1="-1.143" x2="6.985" y2="-0.889" width="0.1524" layer="51" curve="90" cap="flat"/>
+<wire x1="6.731" y1="1.143" x2="6.985" y2="0.889" width="0.1524" layer="51" curve="-90" cap="flat"/>
 <wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.1524" layer="51"/>
 <wire x1="0.889" y1="1.143" x2="1.27" y2="1.143" width="0.1524" layer="21"/>
 <wire x1="1.397" y1="1.016" x2="1.27" y2="1.143" width="0.1524" layer="21"/>
@@ -634,6 +634,19 @@ grid 5.08 mm</description>
 <wire x1="0.47625" y1="-1.5875" x2="0.47625" y2="1.5875" width="0.127" layer="51" curve="-77.319617"/>
 <wire x1="4.7625" y1="1.5875" x2="4.7625" y2="-1.5875" width="0.127" layer="51" curve="-73.057711"/>
 <wire x1="0.47625" y1="1.5875" x2="4.7625" y2="1.5875" width="0.127" layer="21" curve="-109.731614"/>
+</package>
+<package name="RESISTOR_0207_100MIL">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
+type 0207, grid 2.5 mm</description>
+<wire x1="-1.27" y1="0" x2="-0.381" y2="0" width="0.6096" layer="51"/>
+<wire x1="-0.254" y1="0" x2="0.254" y2="0" width="0.6096" layer="51"/>
+<wire x1="0.381" y1="0" x2="1.27" y2="0" width="0.6096" layer="51"/>
+<circle x="-1.27" y="0" radius="1.27" width="0.1524" layer="51"/>
+<circle x="-1.27" y="0" radius="1.016" width="0.1524" layer="51"/>
+<pad name="1" x="-1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
+<text x="-0.0508" y="2.286" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-0.0508" y="-3.5052" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -1146,6 +1159,15 @@ ESR（等価直列抵抗）: 0.8オーム&lt;br&gt;
 <technology name=""/>
 </technologies>
 </device>
+<device name="_300MIL" package="RESISTOR_0207_300MIL">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="LD29150DT*" prefix="U">
@@ -1475,18 +1497,18 @@ TLP627-2&lt;br&gt;
 <devices>
 <device name="B" package="IN-12">
 <connects>
-<connect gate="G$1" pin="1" pad="7"/>
-<connect gate="G$1" pin="10" pad="4"/>
-<connect gate="G$1" pin="11" pad="5"/>
-<connect gate="G$1" pin="12" pad="6"/>
-<connect gate="G$1" pin="2" pad="8"/>
-<connect gate="G$1" pin="3" pad="9"/>
-<connect gate="G$1" pin="4" pad="10"/>
-<connect gate="G$1" pin="5" pad="11"/>
-<connect gate="G$1" pin="6" pad="12"/>
-<connect gate="G$1" pin="7" pad="1"/>
-<connect gate="G$1" pin="8" pad="2"/>
-<connect gate="G$1" pin="9" pad="3"/>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="10" pad="10"/>
+<connect gate="G$1" pin="11" pad="11"/>
+<connect gate="G$1" pin="12" pad="12"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
 <technology name=""/>
