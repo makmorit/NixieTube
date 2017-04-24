@@ -32,3 +32,6 @@ funclist
 *.s#?
 *.b#?
 
+/ThreeDigitDisplay/ThreeDigitDisplay.X/nbproject/private/
+/ThreeDigitDisplay/ThreeDigitDisplay.X/dist/default/
+*.epf
