@@ -31,7 +31,8 @@ funclist
 *.l#?
 *.s#?
 *.b#?
+*.epf
 
+# MPLAB X IDE
 /ThreeDigitDisplay/ThreeDigitDisplay.X/nbproject/private/
 /ThreeDigitDisplay/ThreeDigitDisplay.X/dist/default/
-*.epf
