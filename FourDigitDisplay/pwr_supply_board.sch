@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="25" unitdist="mil" unit="mil" style="dots" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -153,6 +153,20 @@
 <libraries>
 <library name="Generic">
 <packages>
+<package name="3,2">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 3.2 mm with drill center</description>
+<wire x1="-2.159" y1="0" x2="0" y2="-2.159" width="2.4892" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.159" x2="2.159" y2="0" width="2.4892" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="3.429" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="39"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="40"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="1.7" width="0.2032" layer="51"/>
+<hole x="0" y="0" drill="3.2"/>
+</package>
 </packages>
 <symbols>
 <symbol name="A4L-LOC">
@@ -178,6 +192,16 @@
 <text x="216.916" y="4.953" size="2.54" layer="94" font="vector">Sheet:</text>
 <frame x1="0" y1="0" x2="260.35" y2="179.07" columns="6" rows="4" layer="94"/>
 </symbol>
+<symbol name="MOUNT_HOLE">
+<wire x1="0" y1="1.27" x2="1.27" y2="0" width="1.524" layer="94" curve="-90" cap="flat"/>
+<wire x1="-1.27" y1="0" x2="0" y2="-1.27" width="1.524" layer="94" curve="90" cap="flat"/>
+<wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.0508" layer="94"/>
+<wire x1="0" y1="0.508" x2="0" y2="-0.508" width="0.0508" layer="94"/>
+<circle x="0" y="0" radius="2.032" width="0.0508" layer="94"/>
+<circle x="0" y="0" radius="0.508" width="0.0508" layer="94"/>
+<text x="2.032" y="0.5842" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.032" y="-2.4638" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="A4L-LOC" prefix="FRAME">
@@ -188,6 +212,18 @@ DIN A4, landscape with location and doc. field</description>
 </gates>
 <devices>
 <device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MOUNT_HOLE" prefix="H">
+<gates>
+<gate name="G$1" symbol="MOUNT_HOLE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_3.2" package="3,2">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1118,6 +1154,10 @@ TOROID, INDUCTOR, etc...</description>
 <part name="CN3" library="PartsForProto" deviceset="POWER_IF" device=""/>
 <part name="GND4" library="Supply" deviceset="0V" device=""/>
 <part name="P+8" library="Supply" deviceset="+5V" device=""/>
+<part name="H1" library="Generic" deviceset="MOUNT_HOLE" device="_3.2"/>
+<part name="H2" library="Generic" deviceset="MOUNT_HOLE" device="_3.2"/>
+<part name="H3" library="Generic" deviceset="MOUNT_HOLE" device="_3.2"/>
+<part name="H4" library="Generic" deviceset="MOUNT_HOLE" device="_3.2"/>
 </parts>
 <sheets>
 <sheet>
@@ -1176,6 +1216,10 @@ TOROID, INDUCTOR, etc...</description>
 <instance part="P+8" gate="1" x="182.88" y="60.96" smashed="yes">
 <attribute name="VALUE" x="179.705" y="62.23" size="1.778" layer="96"/>
 </instance>
+<instance part="H1" gate="G$1" x="33.02" y="15.24"/>
+<instance part="H2" gate="G$1" x="60.96" y="15.24"/>
+<instance part="H3" gate="G$1" x="88.9" y="15.24"/>
+<instance part="H4" gate="G$1" x="116.84" y="15.24"/>
 </instances>
 <busses>
 </busses>
