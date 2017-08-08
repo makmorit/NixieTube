@@ -352,28 +352,6 @@ grid 5.08 mm(200MIL)</description>
 <text x="0.635" y="2.54" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="0.635" y="-3.683" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
-<package name="SMD_2012">
-<description>手はんだ用パターン 2.0mm×1.2mm（0805）</description>
-<wire x1="-0.381" y1="0.66" x2="0.381" y2="0.66" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.66" x2="0.381" y2="-0.66" width="0.1016" layer="51"/>
-<smd name="1" x="-1.3" y="0" dx="2" dy="1.5" layer="1"/>
-<smd name="2" x="1.3" y="0" dx="2" dy="1.5" layer="1"/>
-<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.0922" y1="-0.7239" x2="-0.3421" y2="0.7262" layer="51"/>
-<rectangle x1="0.3556" y1="-0.7239" x2="1.1057" y2="0.7262" layer="51"/>
-</package>
-<package name="SMD_1608">
-<description>手はんだ用パターン 1.6mm×0.8mm（0603）</description>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<smd name="1" x="-1.1" y="0" dx="1.6" dy="1" layer="1"/>
-<smd name="2" x="1.1" y="0" dx="1.6" dy="1" layer="1"/>
-<text x="-0.635" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-</package>
 <package name="RESISTOR_0411_600MIL">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
 type 0411, grid 15.24 mm(600MIL)</description>
@@ -429,20 +407,6 @@ type 0207, grid 7.5 mm (300MIL)</description>
 <text x="1.524" y="-0.5588" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="0.381" y1="-0.3048" x2="0.635" y2="0.3048" layer="51"/>
 <rectangle x1="6.985" y1="-0.3048" x2="7.239" y2="0.3048" layer="51"/>
-</package>
-<package name="CAP_100MIL">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
-grid 2.54 mm(100MIL)</description>
-<wire x1="-0.3048" y1="3.302" x2="-0.3048" y2="2.54" width="0.3048" layer="21"/>
-<wire x1="-0.3048" y1="2.54" x2="-0.3048" y2="1.778" width="0.3048" layer="21"/>
-<wire x1="0.3302" y1="3.302" x2="0.3302" y2="2.54" width="0.3048" layer="21"/>
-<wire x1="0.3302" y1="2.54" x2="0.3302" y2="1.778" width="0.3048" layer="21"/>
-<wire x1="1.27" y1="2.54" x2="0.3302" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="2.54" x2="-0.3048" y2="2.54" width="0.1524" layer="21"/>
-<pad name="1" x="-1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
-<text x="2.6035" y="2.159" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="2.6035" y="-2.032" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
 <package name="CAP_200MIL">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -583,6 +547,70 @@ grid 5.08 mm</description>
 <wire x1="0.47625" y1="-1.5875" x2="0.47625" y2="1.5875" width="0.127" layer="51" curve="-77.319617"/>
 <wire x1="4.7625" y1="1.5875" x2="4.7625" y2="-1.5875" width="0.127" layer="51" curve="-73.057711"/>
 <wire x1="0.47625" y1="1.5875" x2="4.7625" y2="1.5875" width="0.127" layer="21" curve="-109.731614"/>
+</package>
+<package name="SMD_2012">
+<description>手はんだ用パターン 2.0mm×1.2mm（0805）</description>
+<wire x1="-0.381" y1="0.66" x2="0.381" y2="0.66" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.66" x2="0.381" y2="-0.66" width="0.1016" layer="51"/>
+<smd name="1" x="-1.3" y="0" dx="2" dy="1.2" layer="1"/>
+<smd name="2" x="1.3" y="0" dx="2" dy="1.2" layer="1"/>
+<text x="-2.2225" y="0.9525" size="0.6096" layer="25">&gt;NAME</text>
+<text x="-2.2225" y="-1.5875" size="0.6096" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.0922" y1="-0.7239" x2="-0.3421" y2="0.7262" layer="51"/>
+<rectangle x1="0.3556" y1="-0.7239" x2="1.1057" y2="0.7262" layer="51"/>
+</package>
+<package name="SMD_1608">
+<description>手はんだ用パターン 1.6mm×0.8mm（0603）</description>
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<smd name="1" x="-1.1" y="0" dx="1.6" dy="1" layer="1"/>
+<smd name="2" x="1.1" y="0" dx="1.6" dy="1" layer="1"/>
+<text x="-0.635" y="1.27" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-0.635" y="-1.905" size="0.8128" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
+</package>
+<package name="RESISTOR_0204_200MIL">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
+type 0204, grid 5 mm</description>
+<wire x1="2.54" y1="0" x2="2.032" y2="0" width="0.508" layer="51"/>
+<wire x1="-2.54" y1="0" x2="-2.032" y2="0" width="0.508" layer="51"/>
+<wire x1="-1.778" y1="0.635" x2="-1.524" y2="0.889" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.778" y1="-0.635" x2="-1.524" y2="-0.889" width="0.1524" layer="21" curve="90"/>
+<wire x1="1.524" y1="-0.889" x2="1.778" y2="-0.635" width="0.1524" layer="21" curve="90"/>
+<wire x1="1.524" y1="0.889" x2="1.778" y2="0.635" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.778" y1="-0.635" x2="-1.778" y2="0.635" width="0.1524" layer="51"/>
+<wire x1="-1.524" y1="0.889" x2="-1.27" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="-1.143" y1="0.762" x2="-1.27" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="-1.524" y1="-0.889" x2="-1.27" y2="-0.889" width="0.1524" layer="21"/>
+<wire x1="-1.143" y1="-0.762" x2="-1.27" y2="-0.889" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="0.762" x2="1.27" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="0.762" x2="-1.143" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="-0.762" x2="1.27" y2="-0.889" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="-0.762" x2="-1.143" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="1.524" y1="0.889" x2="1.27" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="1.524" y1="-0.889" x2="1.27" y2="-0.889" width="0.1524" layer="21"/>
+<wire x1="1.778" y1="-0.635" x2="1.778" y2="0.635" width="0.1524" layer="51"/>
+<pad name="1" x="-2.54" y="0" drill="0.7" diameter="1.3"/>
+<pad name="2" x="2.54" y="0" drill="0.7" diameter="1.3"/>
+<text x="-2.54" y="1.27" size="0.8128" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-2.54" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-2.032" y1="-0.254" x2="-1.778" y2="0.254" layer="51"/>
+<rectangle x1="1.778" y1="-0.254" x2="2.032" y2="0.254" layer="51"/>
+</package>
+<package name="CAP_100MIL">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
+grid 2.54 mm(100MIL)</description>
+<wire x1="-0.3048" y1="2.3495" x2="-0.3048" y2="1.5875" width="0.3048" layer="21"/>
+<wire x1="-0.3048" y1="1.5875" x2="-0.3048" y2="0.8255" width="0.3048" layer="21"/>
+<wire x1="0.3302" y1="2.3495" x2="0.3302" y2="1.5875" width="0.3048" layer="21"/>
+<wire x1="0.3302" y1="1.5875" x2="0.3302" y2="0.8255" width="0.3048" layer="21"/>
+<wire x1="1.27" y1="1.5875" x2="0.3302" y2="1.5875" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="1.5875" x2="-0.3048" y2="1.5875" width="0.1524" layer="21"/>
+<pad name="1" x="-1.27" y="0" drill="0.8" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="0.8" rot="R90"/>
+<text x="-2.159" y="-2.286" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+<text x="2.6035" y="0.8255" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -797,6 +825,15 @@ TOROID, INDUCTOR, etc...</description>
 </technologies>
 </device>
 <device name="_300MIL" package="RESISTOR_0207_300MIL">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_200MIL" package="RESISTOR_0204_200MIL">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -1125,7 +1162,7 @@ TOROID, INDUCTOR, etc...</description>
 <part name="R2" library="Parts" deviceset="RESISTOR" device="_600MIL" value="1k"/>
 <part name="R3" library="Parts" deviceset="RESISTOR" device="_600MIL" value="620"/>
 <part name="R4" library="Parts" deviceset="RESISTOR" device="_600MIL" value="1k"/>
-<part name="C2" library="Parts" deviceset="CAP" device="_200MIL" value="1500pF"/>
+<part name="C2" library="Parts" deviceset="CAP" device="_100MIL" value="1500pF"/>
 <part name="U1" library="Parts" deviceset="MC34063A*" device="P1"/>
 <part name="D1" library="Parts" deviceset="1S1585" device=""/>
 <part name="Q1" library="Parts" deviceset="2SA1020L" device="-Y"/>
@@ -1140,8 +1177,8 @@ TOROID, INDUCTOR, etc...</description>
 <part name="C4" library="Parts" deviceset="ELECAP" device="_300MIL" value="33uF/400V"/>
 <part name="P+2" library="Supply" deviceset="+170V" device=""/>
 <part name="U5" library="Parts" deviceset="XC6202*" device="P502TB"/>
-<part name="C5" library="Parts" deviceset="CAP" device="_200MIL" value="1uF"/>
-<part name="C6" library="Parts" deviceset="CAP" device="_200MIL" value="1uF"/>
+<part name="C5" library="Parts" deviceset="CAP" device="_100MIL" value="1uF"/>
+<part name="C6" library="Parts" deviceset="CAP" device="_100MIL" value="1uF"/>
 <part name="P+6" library="Supply" deviceset="+12V" device=""/>
 <part name="P+7" library="Supply" deviceset="+5V" device=""/>
 <part name="GND6" library="Supply" deviceset="0V" device=""/>
