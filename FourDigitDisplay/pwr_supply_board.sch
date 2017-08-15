@@ -612,6 +612,29 @@ grid 2.54 mm(100MIL)</description>
 <text x="-2.159" y="-2.286" size="1.016" layer="25" ratio="10">&gt;NAME</text>
 <text x="2.6035" y="0.8255" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
 </package>
+<package name="ELECAP_D5_100MIL">
+<circle x="0" y="0" radius="2.667" width="0.1524" layer="21"/>
+<pad name="-" x="1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
+<pad name="+" x="-1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
+<text x="2.8575" y="1.5875" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+<text x="2.413" y="-2.413" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
+<wire x1="-3.1465" y1="2.0875" x2="-2.6385" y2="2.0875" width="0.3048" layer="21"/>
+<wire x1="-2.6385" y1="1.5795" x2="-2.6385" y2="2.0875" width="0.3048" layer="21"/>
+<wire x1="-2.6385" y1="2.0875" x2="-2.1305" y2="2.0875" width="0.3048" layer="21"/>
+<wire x1="-2.6385" y1="2.0875" x2="-2.6385" y2="2.5955" width="0.3048" layer="21"/>
+</package>
+<package name="ELECAP_100MIL">
+<description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
+grid 2.54 mm(100MIL)</description>
+<wire x1="-2.829" y1="2.0875" x2="-2.321" y2="2.0875" width="0.3048" layer="21"/>
+<wire x1="-2.321" y1="1.5795" x2="-2.321" y2="2.0875" width="0.3048" layer="21"/>
+<wire x1="-2.321" y1="2.0875" x2="-1.813" y2="2.0875" width="0.3048" layer="21"/>
+<wire x1="-2.321" y1="2.0875" x2="-2.321" y2="2.5955" width="0.3048" layer="21"/>
+<pad name="-" x="1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
+<pad name="+" x="-1.27" y="0" drill="0.8" diameter="1.4" shape="long" rot="R90"/>
+<text x="-1.27" y="1.905" size="0.8128" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.27" y="-2.7305" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CPOL">
@@ -781,6 +804,24 @@ TOROID, INDUCTOR, etc...</description>
 </technologies>
 </device>
 <device name="_200MIL" package="ELECAP_200MIL">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_D5_100MIL" package="ELECAP_D5_100MIL">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_100MIL" package="ELECAP_100MIL">
 <connects>
 <connect gate="G$1" pin="+" pad="+"/>
 <connect gate="G$1" pin="-" pad="-"/>
@@ -1157,7 +1198,7 @@ TOROID, INDUCTOR, etc...</description>
 <part name="FRAME1" library="Generic" deviceset="A4L-LOC" device=""/>
 <part name="P+1" library="Supply" deviceset="+12V" device=""/>
 <part name="GND1" library="Supply" deviceset="0V" device=""/>
-<part name="C1" library="Parts" deviceset="ELECAP" device="_200MIL" value="100uF/16V"/>
+<part name="C1" library="Parts" deviceset="ELECAP" device="_100MIL" value="100uF/16V"/>
 <part name="R1" library="Parts" deviceset="RESISTOR" device="_600MIL" value="0.3"/>
 <part name="R2" library="Parts" deviceset="RESISTOR" device="_600MIL" value="1k"/>
 <part name="R3" library="Parts" deviceset="RESISTOR" device="_600MIL" value="620"/>
